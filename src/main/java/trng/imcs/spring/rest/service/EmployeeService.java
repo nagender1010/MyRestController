@@ -6,11 +6,11 @@ import trng.imcs.spring.mvc.model.Employee;
 
 public interface EmployeeService {
 
-	public int addEmployee(Employee e);
+	public Employee addEmployee(Employee e);
 
-	public int updateEmployee(Employee e);
+	public Employee updateEmployee(Employee e);
 
-	public int deleteEmployee(int empId);
+	public void deleteEmployee(int empId);
 
 	public Employee getEmployee(int empId);
 

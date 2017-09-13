@@ -25,11 +25,14 @@
 	</properties>
 
 	<dependencies>
+		<!-- <dependency> <groupId>trng.imcs.empLibray</groupId> <artifactId>EmpLibrary</artifactId> 
+			<version>0.0.1-SNAPSHOT</version> </dependency> -->
 		<dependency>
-			<groupId>trng.imcs.empLibray</groupId>
-			<artifactId>EmpLibrary</artifactId>
+			<groupId>trng.imcs.springdata</groupId>
+			<artifactId>EmpLibrarySpringData</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -40,18 +43,53 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			</dependency>
-		
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.6.11</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.6.11</version>
+		</dependency>
+
+
+		<!-- JavaConfig need this library -->
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+
 	</dependencies>
-	
-	
+
+
 
 	<build>
-	<finalName>RestController</finalName>
+		<finalName>RestController</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -43,38 +43,33 @@ public class EmployeeController {
 	@RequestMapping(method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_HTML_VALUE })
 	public ResponseEntity<?> createEmployee(@RequestBody Employee employee) {
-		int res = 0;
+		Employee emp = null;
 		try {
-			res = employeeService.addEmployee(employee);
+			emp = employeeService.addEmployee(employee);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if (res != 0) {
-			return new ResponseEntity<>(res, HttpStatus.CREATED);
+		if (emp != null) {
+			return new ResponseEntity<>(emp, HttpStatus.CREATED);
 		}
-		return new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(emp, HttpStatus.BAD_REQUEST);
 	}
 
 	@RequestMapping(value = "/{empId}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> deleteEmployee(@PathVariable int empId) {
 
-		int result = employeeService.deleteEmployee(empId);
-
-		if (result == 0) {
-			return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
-		}
-
-		return new ResponseEntity<>(result, HttpStatus.ACCEPTED);
+		employeeService.deleteEmployee(empId);
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, consumes = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE })
-	public ResponseEntity<?> updateAccount(@RequestBody Employee employee) {
-		int res = employeeService.updateEmployee(employee);
-		if (res == 0) {
+	public ResponseEntity<?> updateEmployee(@RequestBody Employee employee) {
+		Employee emp = employeeService.updateEmployee(employee);
+		if (emp == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<>(employee, HttpStatus.OK);
+		return new ResponseEntity<>(emp, HttpStatus.OK);
 	}
 
 }
